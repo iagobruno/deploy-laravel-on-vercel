@@ -1,0 +1,31 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "/bootstrap/index.php", "use": "vercel-php@0.7.0" },
+        { "src": "/public/**", "use": "@vercel/static" }
+    ],
+    "routes": [
+        {
+            "src": "/(.*).(css|js|png|jpg|webp|ico|txt|json)",
+            "dest": "public/$1.$2"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/bootstrap/index.php"
+        }
+    ],
+    "env": {
+        "ASSET_URL": "/",
+        "CACHE_DRIVER": "array",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "array",
+        "APP_CONFIG_CACHE": "/tmp/config.php",
+        "APP_EVENTS_CACHE": "/tmp/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "VIEW_COMPILED_PATH": "/tmp/views",
+        "SSR_TEMP_PATH": "/tmp/ssr",
+        "NODE_PATH": "node"
+    }
+}
