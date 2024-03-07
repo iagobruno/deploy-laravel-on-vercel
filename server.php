@@ -9,11 +9,8 @@ $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? ''
 );
 
-if (
-    preg_match('/\.(.+)$/', $uri) &&
-    file_exists($file = __DIR__.'/public'.$uri)
-) {
-    header('Content-type: '. get_mime_type($file) .'; charset: UTF-8;');
+if ($uri !== '/' && file_exists($file = __DIR__.'/public'.$uri)) {
+    header('Content-type: '.get_mime_type($file).'; charset: UTF-8;');
     echo require $file;
 } else {
     require_once __DIR__.'/public/index.php';
@@ -23,8 +20,7 @@ if (
 
 
 function get_mime_type($filename) {
-    $extension = explode( '.', $filename );
-    $extension = strtolower($extension[count($extension)-1]);
+    $extension = strtolower(pathinfo($filename)['extension']);
 
     $mimes = array(
         'txt' => 'text/plain',
@@ -61,7 +57,7 @@ function get_mime_type($filename) {
         'otf' => 'font/otf',
     );
 
-    if (isset( $mimes[$extension] )) {
+    if (isset($mimes[$extension])) {
         return $mimes[$extension];
     }
     return 'application/octet-stream';
