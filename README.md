@@ -16,8 +16,10 @@ Copy these files to your project:
 
 You can run additional commands during the Vercel build process by adding them to the "vercel" script in [composer.json](./composer.json#L49) file.
 
+If you need a more complex build system, you can use Github Actions to build and use `vercel deploy` cli command. (Don't forget to disable git auto-deployments in the project settings)
+
 > [!NOTE]
-> By default, vercel/php does not include the built assets. The [server.php](./server.php) file contains an logic to force to do this. [See 7. in the FAQ section.](https://github.com/vercel-community/php#%EF%B8%8F-faq)
+> By default, vercel/php does not include the built assets to production source. The [server.php](./server.php) file contains an logic to force to do this.
 
 ## Environment variables
 
