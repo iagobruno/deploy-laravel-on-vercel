@@ -48,11 +48,7 @@
         ],
         "vercel": [
             "pnpm install",
-            "pnpm run build",
-            "@php artisan route:cache",
-            "@php artisan view:cache",
-            "@php artisan config:cache",
-            "@php artisan event:cache"
+            "pnpm run build"
         ]
     },
     "extra": {

@@ -1,17 +1,12 @@
 {
     "version": 2,
     "builds": [
-        { "src": "/bootstrap/index.php", "use": "vercel-php@0.7.0" },
-        { "src": "/public/**", "use": "@vercel/static" }
+        { "src": "/server.php", "use": "vercel-php@0.7.0" }
     ],
     "routes": [
         {
-            "src": "/(.*).(css|js|png|jpg|webp|ico|txt|json)",
-            "dest": "public/$1.$2"
-        },
-        {
             "src": "/(.*)",
-            "dest": "/bootstrap/index.php"
+            "dest": "/server.php"
         }
     ],
     "env": {
