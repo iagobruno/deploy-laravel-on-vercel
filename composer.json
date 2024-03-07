@@ -45,6 +45,13 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "vercel": [
+            "npm run build",
+            "@php artisan route:cache",
+            "@php artisan view:cache",
+            "@php artisan config:cache",
+            "@php artisan event:cache"
         ]
     },
     "extra": {
