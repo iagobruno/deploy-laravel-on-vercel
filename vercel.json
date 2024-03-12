@@ -11,9 +11,9 @@
     ],
     "env": {
         "ASSET_URL": "/",
-        "CACHE_DRIVER": "array",
-        "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
+        "CACHE_DRIVER": "database",
+        "LOG_CHANNEL": "stderr",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
